@@ -1,0 +1,23 @@
+name: art_history
+version: "1.0.0"
+config-version: 2
+
+profile: art_history
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+models:
+  art_history:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  art_history:
+    art_movements:
+      +column_types:
+        start_year: integer
+        end_year: integer

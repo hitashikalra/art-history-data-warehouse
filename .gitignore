@@ -1,0 +1,9 @@
+data/
+*.failed_ids.txt
+__pycache__/
+.venv/
+.env
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+profiles.yml

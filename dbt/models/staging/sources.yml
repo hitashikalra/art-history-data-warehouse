@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ART_HISTORY
+    schema: RAW
+    tables:
+      - name: artworks
+        identifier: ARTWORKS
+        loaded_at_field: _LOADED_AT
+        freshness:
+          warn_after: {count: 30, period: day}

@@ -1,0 +1,15 @@
+# Copy to ~/.dbt/profiles.yml. Credentials come from environment variables
+# so nothing secret lives in the repo.
+art_history:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'SYSADMIN') }}"
+      warehouse: ART_WH
+      database: ART_HISTORY
+      schema: ANALYTICS
+      threads: 4

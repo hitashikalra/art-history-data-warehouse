@@ -1,0 +1,3 @@
+requests>=2.31
+dbt-core>=1.8
+dbt-snowflake>=1.8

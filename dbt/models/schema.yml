@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_artworks
+    description: One row per public-domain artwork, typed and cleaned from RAW.ARTWORKS.
+    columns:
+      - name: object_id
+        tests: [not_null, unique]
+      - name: medium_family
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Oil paint', 'Tempera', 'Watercolor / gouache', 'Pastel',
+                       'Photography', 'Printmaking', 'Drawing', 'Sculpture',
+                       'Ceramics', 'Textile', 'Unknown', 'Other']
+
+  - name: mart_medium_by_century
+    description: Artwork counts and share by medium family for each century.
+    columns:
+      - name: century
+        tests: [not_null]
+      - name: share_of_century_pct
+        tests: [not_null]
+
+  - name: mart_movement_trends
+    description: Artwork count, top medium, and top department per art movement window.
+    columns:
+      - name: movement
+        tests: [not_null, unique]
